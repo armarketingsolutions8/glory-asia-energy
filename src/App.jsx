@@ -7,14 +7,8 @@ import {
   Building2, Briefcase, LineChart, FileText, Users, ClipboardCheck, Shield, Leaf, AlertTriangle
 } from 'lucide-react';
 
-// Flame Logo Component
-const LogoGraphic = ({ className = "w-7 h-auto sm:w-8" }) => (
-  <svg viewBox="0 0 90 120" fill="none" xmlns="http://www.w3.org/2000/svg" className={`drop-shadow-md ${className}`}>
-    <path d="M 35 0 C 10 30 10 60 25 75 C 25 50 40 30 55 20 C 45 15 40 5 35 0 Z" fill="#F29631"/>
-    <path d="M 50 20 C 25 50 25 80 40 95 C 40 70 55 50 70 40 C 60 35 55 25 50 20 Z" fill="#5176A2"/>
-    <path d="M 65 40 C 40 70 40 100 55 115 C 55 90 70 70 85 60 C 75 55 70 45 65 40 Z" fill="#183058"/>
-  </svg>
-);
+// Import logo SVG baharu
+import gaeLogo from './assets/gae.logo.svg';
 
 // Scroll Reveal Animation Component
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
@@ -81,7 +75,7 @@ const App = () => {
             {/* Logo */}
             <div className="flex items-center space-x-2 cursor-pointer group" onClick={scrollToTop}>
               <div className="transform group-hover:scale-105 transition-transform duration-300">
-                <LogoGraphic />
+                <img src={gaeLogo} alt="Glory Asia Energy" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
               </div>
               <div className="flex items-center ml-1 space-x-1.5 sm:space-x-2">
                 <span className={`text-lg sm:text-xl font-black tracking-widest uppercase leading-none transition-colors duration-300 ${scrolled ? 'text-[#5176A2]' : 'text-[#5176A2] lg:text-white'}`}>GLORY ASIA</span>
@@ -259,7 +253,7 @@ const App = () => {
                 <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">
                   Through our <strong>'Dual-Wheel' Strategy</strong>, we synergize Mineral Resources Development and Oil & Gas (O&G) Engineering Services to create robust market stability and excellence.
                 </p>
-                <p className="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">
+                <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">
                   We remain steadfast in our commitment to driving Indonesia's ambitious national energy targets of achieving <strong>1 million bpd</strong> and <strong>12 BSCFD</strong> by 2030.
                 </p>
               </RevealOnScroll>
@@ -730,7 +724,7 @@ const App = () => {
             {/* Branding & CTA */}
             <RevealOnScroll>
               <div className="flex items-center space-x-2 mb-6 bg-white/5 inline-flex p-3 rounded-2xl backdrop-blur-sm border border-white/10 shadow-lg">
-                <LogoGraphic className="w-8 h-auto sm:w-12 drop-shadow-md" />
+                <img src={gaeLogo} alt="Glory Asia Energy" className="w-9 h-9 sm:w-12 sm:h-12 object-contain drop-shadow-md" />
                 <div className="flex flex-col ml-1 justify-center">
                   <span className="text-2xl sm:text-3xl font-black text-white tracking-widest uppercase leading-none drop-shadow-sm">GLORY ASIA</span>
                   <span className="text-base sm:text-lg font-black text-[#5176A2] tracking-[0.2em] uppercase leading-none mt-1">ENERGY</span>
