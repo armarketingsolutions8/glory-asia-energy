@@ -467,7 +467,7 @@ const App = () => {
             <RevealOnScroll delay={100} className="bg-gradient-to-br from-[#183058] to-blue-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
               <Building2 className="text-[#F29631] mb-6" size={40} />
-              <h4 className="text-2xl font-black mb-2">PT Glory Asia Energy</h4>
+              <h4 className="text-2xl font-black mb-2">Glory Asia Energy</h4>
               <p className="text-blue-200 text-sm uppercase tracking-wider font-bold mb-4">Technology & Funding Lead</p>
               <p className="text-blue-100/80 text-sm leading-relaxed">
                 Acting as the primary Technology Provider deploying Best Available Technology (BAT), and serving as Project Lead for capital investment and infrastructure funding.
