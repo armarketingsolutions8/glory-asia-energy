@@ -7,8 +7,9 @@ import {
   Building2, Briefcase, LineChart, FileText, Users, ClipboardCheck, Shield, Leaf, AlertTriangle
 } from 'lucide-react';
 
-// Import logo SVG baharu
+// Import logo SVG
 import gaeLogo from './assets/gae.logo.svg';
+import footerLogo from './assets/gae-footer.svg';
 
 // Scroll Reveal Animation Component
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
@@ -77,7 +78,6 @@ const App = () => {
               <div className="transform group-hover:scale-105 transition-transform duration-300">
                 <img src={gaeLogo} alt="Glory Asia Energy" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
               </div>
-              {/* DIKEMASKINI: Teks Nama Syarikat Sebaris & Sama Saiz */}
               <div className="flex items-center ml-2 space-x-1.5 sm:space-x-2">
                 <span className={`text-lg sm:text-xl font-black tracking-wide uppercase leading-none transition-colors duration-300 ${scrolled ? 'text-[#183058]' : 'text-white'}`}>GLORY ASIA</span>
                 <span className="text-lg sm:text-xl font-black tracking-wide uppercase leading-none transition-colors duration-300 text-[#F29631]">ENERGY</span>
@@ -724,13 +724,9 @@ const App = () => {
             
             {/* Branding & CTA */}
             <RevealOnScroll>
-              {/* DIKEMASKINI: Susunan menegak (Logo atas, Teks bawah) */}
-              <div className="flex flex-col items-center mb-8 bg-white/5 inline-flex p-6 rounded-3xl backdrop-blur-sm border border-white/10 shadow-lg">
-                <img src={gaeLogo} alt="Glory Asia Energy" className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-md mb-3" />
-                <div className="flex flex-row items-center space-x-1.5 sm:space-x-2">
-                  <span className="text-xl sm:text-2xl font-black text-white tracking-wider uppercase leading-none drop-shadow-sm">GLORY ASIA</span>
-                  <span className="text-xl sm:text-2xl font-black text-[#F29631] tracking-wider uppercase leading-none drop-shadow-sm">ENERGY</span>
-                </div>
+              {/* Box putih untuk pastikan teks gelap pada logo nampak jelas */}
+              <div className="mb-8 bg-white inline-flex p-5 rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                <img src={footerLogo} alt="Glory Asia Energy" className="w-48 h-auto sm:w-56 object-contain" />
               </div>
               
               <h4 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight leading-tight">
