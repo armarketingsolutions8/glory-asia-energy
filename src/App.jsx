@@ -77,9 +77,10 @@ const App = () => {
               <div className="transform group-hover:scale-105 transition-transform duration-300">
                 <img src={gaeLogo} alt="Glory Asia Energy" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-md" />
               </div>
-              <div className="flex items-center ml-1 space-x-1.5 sm:space-x-2">
-                <span className={`text-lg sm:text-xl font-black tracking-widest uppercase leading-none transition-colors duration-300 ${scrolled ? 'text-[#5176A2]' : 'text-[#5176A2] lg:text-white'}`}>GLORY ASIA</span>
-                <span className={`text-sm sm:text-base font-black tracking-[0.2em] uppercase leading-none transition-colors duration-300 ${scrolled ? 'text-[#183058]' : 'text-[#183058] lg:text-blue-200'}`}>ENERGY</span>
+              {/* DIKEMASKINI: Teks Nama Syarikat Sebaris & Sama Saiz */}
+              <div className="flex items-center ml-2 space-x-1.5 sm:space-x-2">
+                <span className={`text-lg sm:text-xl font-black tracking-wide uppercase leading-none transition-colors duration-300 ${scrolled ? 'text-[#183058]' : 'text-white'}`}>GLORY ASIA</span>
+                <span className="text-lg sm:text-xl font-black tracking-wide uppercase leading-none transition-colors duration-300 text-[#F29631]">ENERGY</span>
               </div>
             </div>
 
@@ -725,9 +726,10 @@ const App = () => {
             <RevealOnScroll>
               <div className="flex items-center space-x-2 mb-6 bg-white/5 inline-flex p-3 rounded-2xl backdrop-blur-sm border border-white/10 shadow-lg">
                 <img src={gaeLogo} alt="Glory Asia Energy" className="w-9 h-9 sm:w-12 sm:h-12 object-contain drop-shadow-md" />
-                <div className="flex flex-col ml-1 justify-center">
-                  <span className="text-2xl sm:text-3xl font-black text-white tracking-widest uppercase leading-none drop-shadow-sm">GLORY ASIA</span>
-                  <span className="text-base sm:text-lg font-black text-[#5176A2] tracking-[0.2em] uppercase leading-none mt-1">ENERGY</span>
+                {/* DIKEMASKINI: Teks Nama Syarikat di Footer Sebaris */}
+                <div className="flex flex-row items-center ml-3 space-x-2">
+                  <span className="text-2xl sm:text-3xl font-black text-white tracking-wider uppercase leading-none drop-shadow-sm">GLORY ASIA</span>
+                  <span className="text-2xl sm:text-3xl font-black text-[#F29631] tracking-wider uppercase leading-none drop-shadow-sm">ENERGY</span>
                 </div>
               </div>
               <h4 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight leading-tight">
