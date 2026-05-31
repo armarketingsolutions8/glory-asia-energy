@@ -724,14 +724,15 @@ const App = () => {
             
             {/* Branding & CTA */}
             <RevealOnScroll>
-              <div className="flex items-center space-x-2 mb-6 bg-white/5 inline-flex p-3 rounded-2xl backdrop-blur-sm border border-white/10 shadow-lg">
-                <img src={gaeLogo} alt="Glory Asia Energy" className="w-9 h-9 sm:w-12 sm:h-12 object-contain drop-shadow-md" />
-                {/* DIKEMASKINI: Teks Nama Syarikat di Footer Sebaris */}
-                <div className="flex flex-row items-center ml-3 space-x-2">
-                  <span className="text-2xl sm:text-3xl font-black text-white tracking-wider uppercase leading-none drop-shadow-sm">GLORY ASIA</span>
-                  <span className="text-2xl sm:text-3xl font-black text-[#F29631] tracking-wider uppercase leading-none drop-shadow-sm">ENERGY</span>
+              {/* DIKEMASKINI: Susunan menegak (Logo atas, Teks bawah) */}
+              <div className="flex flex-col items-center mb-8 bg-white/5 inline-flex p-6 rounded-3xl backdrop-blur-sm border border-white/10 shadow-lg">
+                <img src={gaeLogo} alt="Glory Asia Energy" className="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-md mb-3" />
+                <div className="flex flex-row items-center space-x-1.5 sm:space-x-2">
+                  <span className="text-xl sm:text-2xl font-black text-white tracking-wider uppercase leading-none drop-shadow-sm">GLORY ASIA</span>
+                  <span className="text-xl sm:text-2xl font-black text-[#F29631] tracking-wider uppercase leading-none drop-shadow-sm">ENERGY</span>
                 </div>
               </div>
+              
               <h4 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight leading-tight">
                 Partnering for <br/><span className="text-[#F29631]">Energy Excellence</span>
               </h4>
