@@ -131,8 +131,8 @@ const App = () => {
       title: 'Plunger Pump Control System Video',
       category: 'video',
       type: 'video',
-      videoSrc: '/6.mp4',
-      src: '/6.mp4',
+      videoSrc: '/7.mp4',
+      src: '/7.mp4',
       description: 'Overview of cloud-based digital telemetry monitoring flow rates in real-time.'
     }
   ];
