@@ -8,7 +8,7 @@ import {
   Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check
 } from 'lucide-react';
 
-const gaeLogo = '/favicon.svg',
+const gaeLogo = "/favicon.svg",
 const footerLogo = gaeLogo;
 
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
@@ -289,7 +289,7 @@ const App = () => {
             <RevealOnScroll className="relative h-[450px] hidden lg:block">
               <div className="absolute top-0 left-0 w-[75%] h-[75%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10 hover:-translate-y-1 transition-transform duration-500 group">
                 <img 
-                  src="/5.jpeg" 
+                  src= "/5.jpeg", 
                   alt="Engineering Technology" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -297,7 +297,7 @@ const App = () => {
               </div>
               <div className="absolute bottom-0 right-0 w-[60%] h-[60%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20 hover:-translate-y-1 transition-transform duration-500 group">
                 <img 
-                  src="/5.jpeg" 
+                  src="/5.jpeg",
                   alt="Industrial Machinery" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -834,7 +834,7 @@ const App = () => {
             {/* Left Box */}
             <div className="lg:col-span-5 bg-gradient-to-br from-blue-900/60 to-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
               <div>
-                <img src={footerLogo} alt="/favicon.svg" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
+                <img src={footerLogo} alt= "/favicon.svg" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
                 <h3 className="text-3xl font-black text-white leading-tight mb-4">
                   Partnering for <br />
                   <span className="text-[#F29631]">Energy Excellence</span>
