@@ -73,7 +73,7 @@ const App = () => {
       title: 'Brownfield Well Rejuvenation Site',
       category: 'well',
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/1.jpg',
       description: 'Smart rodless plunger pump system installed at Zhundong Field.'
     },
     {
