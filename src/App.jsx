@@ -583,7 +583,7 @@ const App = () => {
               { id: 'pipeline', label: 'Pipeline Asset' },
               { id: 'sludge', label: 'Sludge Recovery' },
               { id: 'operations', label: 'Field Operations' },
-              { id: 'video', label: 'Video Demos' }
+              { id: 'video', label: 'Video' }
             ].map(tab => (
               <button
                 key={tab.id}
