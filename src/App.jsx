@@ -205,9 +205,9 @@ const App = () => {
         
         <div className="absolute inset-0 z-0">
           <img 
-            src="/5.jpeg" 
+            src="/firstpage.png" 
             alt="Industrial Energy" 
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#183058] via-[#183058]/95 to-transparent"></div>
         </div>
