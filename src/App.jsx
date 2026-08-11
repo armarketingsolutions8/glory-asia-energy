@@ -98,8 +98,8 @@ const App = () => {
       title: 'Field Operation & Live Demonstration',
       category: 'video',
       type: 'video',
-      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-      src: '/5.jpeg',
+      videoSrc: '/6.mp4',
+      src: '/6.mp4',
       description: 'Live field test demonstrating rapid flow activation and viscosity reduction.'
     },
     {
@@ -131,8 +131,8 @@ const App = () => {
       title: 'Plunger Pump Control System Video',
       category: 'video',
       type: 'video',
-      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
-      src: '/5.jpeg',
+      videoSrc: '/6.mp4',
+      src: '/6.mp4',
       description: 'Overview of cloud-based digital telemetry monitoring flow rates in real-time.'
     }
   ];
