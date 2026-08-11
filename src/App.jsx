@@ -73,7 +73,7 @@ const App = () => {
       title: 'Brownfield Well Rejuvenation Site',
       category: 'well',
       type: 'image',
-      src: /1.jpeg
+      src: '/1.jpeg',
       description: 'Smart rodless plunger pump system installed at Zhundong Field.'
     },
     {
