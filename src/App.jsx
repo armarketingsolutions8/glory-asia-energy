@@ -381,7 +381,7 @@ const App = () => {
             <RevealOnScroll delay={100} className="group bg-slate-50 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col hover:-translate-y-2 duration-300">
               <div className="h-48 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1621644788326-70966a347318?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                  src='/1.jpeg',
                   alt="Well Rejuvenation" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
