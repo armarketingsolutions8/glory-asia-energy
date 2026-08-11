@@ -82,7 +82,7 @@ const App = () => {
       title: 'High-Pressure Pipeline Thermal Cleaning',
       category: 'pipeline',
       type: 'image',
-      src: '/5.jpeg',
+      src: '/2.jpeg',
       description: '50°C nano-chemical injection units active along PetroChina pipeline segment.'
     },
     {
@@ -90,7 +90,7 @@ const App = () => {
       title: 'Automated Sludge Separation Rig',
       category: 'sludge',
       type: 'image',
-      src: '/1.jpeg',
+      src: '/3.jpeg',
       description: 'Closed-loop COW process recovering >95% crude oil with zero entry risk.'
     },
     {
@@ -99,7 +99,7 @@ const App = () => {
       category: 'video',
       type: 'video',
       videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-      src: '/5.jpeg',
+      src: '/4.jpeg',
       description: 'Live field test demonstrating rapid flow activation and viscosity reduction.'
     },
     {
@@ -107,7 +107,7 @@ const App = () => {
       title: 'Nano-Chemical Laboratory Testing',
       category: 'operations',
       type: 'image',
-      src: '/1.jpeg',
+      src: '/5.jpeg',
       description: 'R&D testing for customized bio-surfactants and wax dissolution formulas.'
     },
     {
@@ -115,7 +115,7 @@ const App = () => {
       title: 'On-Site Storage Tank Recovery',
       category: 'sludge',
       type: 'image',
-      src: '/5.jpeg',
+      src: '/6.mp4',
       description: 'Crude washing unit reducing hazardous waste sludge weight by over 70%.'
     },
     {
@@ -123,17 +123,8 @@ const App = () => {
       title: 'Offshore & Onshore Field Integration',
       category: 'operations',
       type: 'image',
-      src: '/1.jpeg',
+      src: '/7.mp4',
       description: 'Joint engineering team deploying BAT solutions in challenging field conditions.'
-    },
-    {
-      id: 8,
-      title: 'Plunger Pump Control System Video',
-      category: 'video',
-      type: 'video',
-      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
-      src: '/5.jpeg',
-      description: 'Overview of cloud-based digital telemetry monitoring flow rates in real-time.'
     }
   ];
 
