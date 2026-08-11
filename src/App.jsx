@@ -559,33 +559,7 @@ const App = () => {
             </RevealOnScroll>
           </div>
 
-          {/* Roadmap to Establishment */}
-          <RevealOnScroll delay={250} className="bg-slate-50 rounded-3xl p-8 border border-slate-200 max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <h4 className="text-xl font-black text-[#183058]">Roadmap to Establishment</h4>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 relative">
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative text-center">
-                <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full mb-3">Mo 1</span>
-                <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 1: Strategic Alignment</h5>
-                <p className="text-xs text-slate-500 leading-relaxed">Finalization of Joint Venture structure and signing of the Consortium Partnership Agreement.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative text-center">
-                <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full mb-3">Mo 2</span>
-                <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 2: Legal & Licensing</h5>
-                <p className="text-xs text-slate-500 leading-relaxed">Legal registration of PT Glory Asia Energy (PT PMA), including licensing for O&G technical services.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative text-center">
-                <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full mb-3">Mo 3</span>
-                <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 3: Operational Launch</h5>
-                <p className="text-xs text-slate-500 leading-relaxed">Operational team integration and equipment mobilization for pilot project commencement.</p>
-              </div>
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      
 
       {}
       <section id="gallery" className="py-20 bg-slate-900 text-white relative overflow-hidden">
