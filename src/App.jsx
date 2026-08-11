@@ -205,7 +205,7 @@ const App = () => {
         
         <div className="absolute inset-0 z-0">
           <img 
-            src="/1.jpeg" 
+            src="/5.jpeg" 
             alt="Industrial Energy" 
             className="w-full h-full object-cover opacity-20"
           />
