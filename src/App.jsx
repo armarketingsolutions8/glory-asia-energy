@@ -8,7 +8,7 @@ import {
   Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check
 } from 'lucide-react';
 
-const gaeLogo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F29631' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E";
+const gaeLogo = "/favicon.svg"
 const footerLogo = gaeLogo;
 
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
