@@ -67,7 +67,7 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  /* Menggunakan fail /2.jpeg dan /3.jpeg dari folder public */
+  /* Menggunakan fail /1.jpeg dan /3.jpeg dari folder public */
   const galleryItems = [
     {
       id: 1,
