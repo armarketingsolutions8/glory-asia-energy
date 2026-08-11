@@ -67,7 +67,7 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  /* Menggunakan fail /1.jpeg dan /5.jpeg dari folder public */
+  /* Menggunakan fail /2.jpeg dan /3.jpeg dari folder public */
   const galleryItems = [
     {
       id: 1,
@@ -82,7 +82,7 @@ const App = () => {
       title: 'High-Pressure Pipeline Thermal Cleaning',
       category: 'pipeline',
       type: 'image',
-      src: '/5.jpeg',
+      src: '/2.jpeg',
       description: '50°C nano-chemical injection units active along PetroChina pipeline segment.'
     },
     {
@@ -90,7 +90,7 @@ const App = () => {
       title: 'Automated Sludge Separation Rig',
       category: 'sludge',
       type: 'image',
-      src: '/1.jpeg',
+      src: '/3.jpeg',
       description: 'Closed-loop COW process recovering >95% crude oil with zero entry risk.'
     },
     {
@@ -107,7 +107,7 @@ const App = () => {
       title: 'Nano-Chemical Laboratory Testing',
       category: 'operations',
       type: 'image',
-      src: '/1.jpeg',
+      src: '/4.jpeg',
       description: 'R&D testing for customized bio-surfactants and wax dissolution formulas.'
     },
     {
