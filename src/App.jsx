@@ -867,7 +867,7 @@ const App = () => {
             {/* Left Box: Partnering Box */}
             <div className="lg:col-span-5 bg-gradient-to-br from-blue-900/60 to-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
               <div>
-                <img src={footerLogo} alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
+                <img src= "/favicon.svg"  alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
                 <h3 className="text-3xl font-black text-white leading-tight mb-4">
                   Partnering for <br />
                   <span className="text-[#F29631]">Energy Excellence</span>
