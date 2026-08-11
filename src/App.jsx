@@ -4,14 +4,13 @@ import {
   ShieldCheck, Handshake, Target, ArrowRight, CheckCircle2,
   Mail, MapPin, Award, Zap, BarChart3, Globe2,
   MessageSquare, Search, FlaskConical, Rocket, MonitorCheck, ChevronUp,
-  Building2, Briefcase, LineChart, FileText, Users, ClipboardCheck, Shield, Leaf, AlertTriangle
+  Building2, Briefcase, LineChart, FileText, Users, ClipboardCheck, Shield, Leaf, AlertTriangle,
+  Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check
 } from 'lucide-react';
 
-// Import logo SVG
-import gaeLogo from './assets/gae.logo.svg';
-import footerLogo from './assets/gae-footer.svg';
+const gaeLogo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F29631' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E";
+const footerLogo = gaeLogo;
 
-// Scroll Reveal Animation Component
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef();
@@ -29,7 +28,7 @@ const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
 
     if (currentRef) observer.observe(currentRef);
@@ -41,7 +40,7 @@ const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-1000 ease-out ${
+      className={`transition-all duration-700 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       } ${className}`}
     >
@@ -53,9 +52,11 @@ const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeTab, setActiveTab] = useState('all');
+  const [selectedMedia, setSelectedMedia] = useState(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -66,13 +67,87 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const galleryItems = [
+    {
+      id: 1,
+      title: 'Brownfield Well Rejuvenation Site',
+      category: 'well',
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'Smart rodless plunger pump system installed at Zhundong Field.'
+    },
+    {
+      id: 2,
+      title: 'High-Pressure Pipeline Thermal Cleaning',
+      category: 'pipeline',
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: '50°C nano-chemical injection units active along PetroChina pipeline segment.'
+    },
+    {
+      id: 3,
+      title: 'Automated Sludge Separation Rig',
+      category: 'sludge',
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1508344928928-7137b29de218?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'Closed-loop COW process recovering >95% crude oil with zero entry risk.'
+    },
+    {
+      id: 4,
+      title: 'Field Operation & Live Demonstration',
+      category: 'video',
+      type: 'video',
+      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
+      src: 'https://images.unsplash.com/photo-1605647540924-852290f6b0d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'Live field test demonstrating rapid flow activation and viscosity reduction.'
+    },
+    {
+      id: 5,
+      title: 'Nano-Chemical Laboratory Testing',
+      category: 'operations',
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'R&D testing for customized bio-surfactants and wax dissolution formulas.'
+    },
+    {
+      id: 6,
+      title: 'On-Site Storage Tank Recovery',
+      category: 'sludge',
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'Crude washing unit reducing hazardous waste sludge weight by over 70%.'
+    },
+    {
+      id: 7,
+      title: 'Offshore & Onshore Field Integration',
+      category: 'operations',
+      type: 'image',
+      src: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'Joint engineering team deploying BAT solutions in challenging field conditions.'
+    },
+    {
+      id: 8,
+      title: 'Plunger Pump Control System Video',
+      category: 'video',
+      type: 'video',
+      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
+      src: 'https://images.unsplash.com/photo-1621644788326-70966a347318?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      description: 'Overview of cloud-based digital telemetry monitoring flow rates in real-time.'
+    }
+  ];
+
+  const filteredItems = activeTab === 'all' 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === activeTab || (activeTab === 'video' && item.type === 'video'));
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-[#F29631] selection:text-white">
       
-      {/* Navigation */}
+      {}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-12">
+            
             {/* Logo */}
             <div className="flex items-center space-x-2 cursor-pointer group" onClick={scrollToTop}>
               <div className="transform group-hover:scale-105 transition-transform duration-300">
@@ -90,6 +165,7 @@ const App = () => {
               <a href="#expertise" className={`text-xs font-bold tracking-wider uppercase transition-colors hover:text-[#F29631] ${scrolled ? 'text-slate-600' : 'text-slate-200'}`}>Expertise</a>
               <a href="#cases" className={`text-xs font-bold tracking-wider uppercase transition-colors hover:text-[#F29631] ${scrolled ? 'text-slate-600' : 'text-slate-200'}`}>Track Record</a>
               <a href="#consortium" className={`text-xs font-bold tracking-wider uppercase transition-colors hover:text-[#F29631] ${scrolled ? 'text-slate-600' : 'text-slate-200'}`}>Consortium</a>
+              <a href="#gallery" className={`text-xs font-bold tracking-wider uppercase transition-colors hover:text-[#F29631] ${scrolled ? 'text-slate-600' : 'text-slate-200'}`}>Gallery</a>
               <a href="#workpack" className={`text-xs font-bold tracking-wider uppercase transition-colors hover:text-[#F29631] ${scrolled ? 'text-slate-600' : 'text-slate-200'}`}>Workpacks</a>
               <a href="#contact" className="bg-[#F29631] text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase hover:bg-orange-600 transition-all shadow-md hover:shadow-orange-500/40 hover:-translate-y-0.5">
                 Partner With Us
@@ -107,20 +183,21 @@ const App = () => {
 
         {/* Mobile Dropdown Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-slate-100 absolute w-full shadow-2xl mt-3 pb-4 px-4 animate-in slide-in-from-top-2 duration-300">
+          <div className="lg:hidden bg-white border-t border-slate-100 absolute w-full shadow-2xl mt-2 pb-4 px-4 animate-in slide-in-from-top-2 duration-300">
             <div className="flex flex-col space-y-1 mt-2 text-center">
-              <a href="#about" onClick={toggleMenu} className="block px-4 py-3 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">About Us</a>
-              <a href="#expertise" onClick={toggleMenu} className="block px-4 py-3 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Core Expertise</a>
-              <a href="#cases" onClick={toggleMenu} className="block px-4 py-3 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Track Record</a>
-              <a href="#consortium" onClick={toggleMenu} className="block px-4 py-3 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Consortium</a>
-              <a href="#workpack" onClick={toggleMenu} className="block px-4 py-3 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Workpacks</a>
+              <a href="#about" onClick={toggleMenu} className="block px-4 py-2.5 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">About Us</a>
+              <a href="#expertise" onClick={toggleMenu} className="block px-4 py-2.5 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Core Expertise</a>
+              <a href="#cases" onClick={toggleMenu} className="block px-4 py-2.5 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Track Record</a>
+              <a href="#consortium" onClick={toggleMenu} className="block px-4 py-2.5 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Consortium</a>
+              <a href="#gallery" onClick={toggleMenu} className="block px-4 py-2.5 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Gallery</a>
+              <a href="#workpack" onClick={toggleMenu} className="block px-4 py-2.5 text-slate-600 text-sm font-bold tracking-wide uppercase hover:bg-blue-50 hover:text-[#183058] rounded-xl transition-colors">Workpacks</a>
               <a href="#contact" onClick={toggleMenu} className="block mt-2 bg-[#183058] text-white px-4 py-3 rounded-xl text-sm font-bold tracking-wide uppercase hover:bg-blue-900 transition-colors shadow-sm">Partner With Us</a>
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
+      {}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#183058]">
         {/* Animated Background Gradients */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#5176A2]/30 rounded-full mix-blend-screen filter blur-[80px] opacity-60 animate-pulse"></div>
@@ -165,9 +242,9 @@ const App = () => {
         </div>
       </section>
 
-      {/* Stats Banner */}
+      {}
       <section className="relative -mt-12 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <RevealOnScroll delay={300}>
+        <RevealOnScroll delay={200}>
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl border border-white/50 p-6 lg:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-200">
             <div className="flex items-center space-x-4 px-2 group cursor-default">
               <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-50 rounded-xl flex items-center justify-center text-[#F29631] flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-inner">
@@ -202,14 +279,14 @@ const App = () => {
         </RevealOnScroll>
       </section>
 
-      {/* About Us Section */}
+      {}
       <section id="about" className="py-20 bg-slate-50 relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#183058 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left: Image Collage */}
+            {/* Left Image Collage */}
             <RevealOnScroll className="relative h-[450px] hidden lg:block">
               <div className="absolute top-0 left-0 w-[75%] h-[75%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10 hover:-translate-y-1 transition-transform duration-500 group">
                 <img 
@@ -226,9 +303,10 @@ const App = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              {/* Floating Badge */}
+              
+              {/* Floating Safety First Badge */}
               <div className="absolute top-[40%] right-2 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg z-30 flex items-center space-x-3 animate-bounce-slow">
-                <div className="bg-emerald-100 p-2 rounded-lg">
+                <div className="bg-emerald-100 p-2.5 rounded-lg">
                   <ShieldCheck className="text-emerald-600" size={24} />
                 </div>
                 <div>
@@ -238,7 +316,7 @@ const App = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Right: Content */}
+            {/* Right Text Content */}
             <div>
               <RevealOnScroll delay={100}>
                 <div className="inline-block bg-orange-100 px-3 py-1.5 rounded-full mb-4">
@@ -254,14 +332,14 @@ const App = () => {
                 <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">
                   Through our <strong>'Dual-Wheel' Strategy</strong>, we synergize Mineral Resources Development and Oil & Gas (O&G) Engineering Services to create robust market stability and excellence.
                 </p>
-                <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">
+                <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
                   We remain steadfast in our commitment to driving Indonesia's ambitious national energy targets of achieving <strong>1 million bpd</strong> and <strong>12 BSCFD</strong> by 2030.
                 </p>
               </RevealOnScroll>
               
               <div className="space-y-4">
                 <RevealOnScroll delay={200} className="flex items-start bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                  <div className="bg-orange-50 p-2 rounded-lg mr-4 mt-1">
+                  <div className="bg-orange-50 p-2.5 rounded-lg mr-4 mt-1">
                     <Handshake className="text-[#F29631]" size={20} />
                   </div>
                   <div>
@@ -271,7 +349,7 @@ const App = () => {
                 </RevealOnScroll>
                 
                 <RevealOnScroll delay={300} className="flex items-start bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4 mt-1">
+                  <div className="bg-blue-50 p-2.5 rounded-lg mr-4 mt-1">
                     <Settings className="text-[#5176A2]" size={20} />
                   </div>
                   <div>
@@ -285,7 +363,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Core Expertise Section */}
+      {}
       <section id="expertise" className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealOnScroll className="text-center max-w-2xl mx-auto mb-12">
@@ -380,7 +458,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Case History Section */}
+      {}
       <section id="cases" className="py-20 bg-slate-100 relative border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <RevealOnScroll className="text-center max-w-2xl mx-auto mb-12">
@@ -399,7 +477,7 @@ const App = () => {
                 <span className="bg-[#F29631] text-white text-xs font-bold px-3 py-1 rounded-full">POD 1</span>
                 <LineChart className="text-slate-400" size={20} />
               </div>
-              <h4 className="font-black text-[#183058] text-lg mb-2">Brownfield Well Rejuvenation</h4>
+              <h4 className="font-black text-[#183058] text-lg mb-1">Brownfield Well Rejuvenation</h4>
               <p className="text-slate-500 text-xs mb-4 uppercase tracking-wider font-semibold">Idle Well Reactivation</p>
               <div className="space-y-3 text-sm">
                 <p><strong className="text-slate-700">Target Fields:</strong> Zhundong, Jilin, and Changqing oil fields.</p>
@@ -415,7 +493,7 @@ const App = () => {
                 <span className="bg-[#5176A2] text-white text-xs font-bold px-3 py-1 rounded-full">POD 2</span>
                 <LineChart className="text-slate-400" size={20} />
               </div>
-              <h4 className="font-black text-[#183058] text-lg mb-2">Pipeline Asset Rejuvenation</h4>
+              <h4 className="font-black text-[#183058] text-lg mb-1">Pipeline Asset Rejuvenation</h4>
               <p className="text-slate-500 text-xs mb-4 uppercase tracking-wider font-semibold">Flow Restoration</p>
               <div className="space-y-3 text-sm">
                 <p><strong className="text-slate-700">Target Entities:</strong> Sinopec and PetroChina infrastructure.</p>
@@ -431,7 +509,7 @@ const App = () => {
                 <span className="bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">POD 3</span>
                 <LineChart className="text-slate-400" size={20} />
               </div>
-              <h4 className="font-black text-[#183058] text-lg mb-2">Sludge Oil Recovery (SOR)</h4>
+              <h4 className="font-black text-[#183058] text-lg mb-1">Sludge Oil Recovery (SOR)</h4>
               <p className="text-slate-500 text-xs mb-4 uppercase tracking-wider font-semibold">Waste-to-Value</p>
               <div className="space-y-3 text-sm">
                 <p><strong className="text-slate-700">Target Facilities:</strong> Sinopec Shengli Refinery.</p>
@@ -445,7 +523,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Strategic Consortium Section */}
+      {}
       <section id="consortium" className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealOnScroll className="text-center max-w-2xl mx-auto mb-12">
@@ -458,22 +536,23 @@ const App = () => {
             </p>
           </RevealOnScroll>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <RevealOnScroll delay={100} className="bg-gradient-to-br from-[#183058] to-blue-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          {/* Partner Cards */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+            <RevealOnScroll delay={100} className="bg-gradient-to-br from-[#183058] to-blue-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden group hover:scale-[1.01] transition-transform">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors"></div>
               <Building2 className="text-[#F29631] mb-6" size={40} />
-              <h4 className="text-2xl font-black mb-2">Glory Asia Energy</h4>
-              <p className="text-blue-200 text-sm uppercase tracking-wider font-bold mb-4">Technology & Funding Lead</p>
+              <h4 className="text-2xl font-black mb-1">Glory Asia Energy</h4>
+              <p className="text-blue-200 text-xs uppercase tracking-wider font-bold mb-4">Technology & Funding Lead</p>
               <p className="text-blue-100/80 text-sm leading-relaxed">
                 Acting as the primary Technology Provider deploying Best Available Technology (BAT), and serving as Project Lead for capital investment and infrastructure funding.
               </p>
             </RevealOnScroll>
-
-            <RevealOnScroll delay={200} className="bg-white rounded-3xl p-8 border-2 border-slate-100 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              <Briefcase className="text-[#5176A2] mb-6" size={40} />
-              <h4 className="text-2xl font-black text-[#183058] mb-2">PT Radiant Utama</h4>
-              <p className="text-slate-500 text-sm uppercase tracking-wider font-bold mb-4">Local Content & Representation</p>
+            
+            <RevealOnScroll delay={200} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl relative overflow-hidden group hover:scale-[1.01] transition-transform">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-orange-50 transition-colors"></div>
+              <Users className="text-[#5176A2] mb-6" size={40} />
+              <h4 className="text-2xl font-black text-[#183058] mb-1">PT Radiant Utama</h4>
+              <p className="text-slate-500 text-xs uppercase tracking-wider font-bold mb-4">Local Content & Representation</p>
               <p className="text-slate-600 text-sm leading-relaxed">
                 Acting as the strategic local partner, leveraging its extensive presence to manage regulatory requirements, licensing, permitting, and local content (TKDN) compliance.
               </p>
@@ -481,164 +560,266 @@ const App = () => {
           </div>
 
           {/* Roadmap to Establishment */}
-          <RevealOnScroll delay={300}>
-            <div className="mt-12 bg-slate-50 rounded-3xl p-8 border border-slate-200 max-w-4xl mx-auto">
-              <h4 className="text-xl font-black text-[#183058] mb-8 text-center tracking-tight">Roadmap to Establishment</h4>
-              <div className="grid md:grid-cols-3 gap-6 relative">
-                {/* Connection Line */}
-                <div className="hidden md:block absolute top-8 left-[15%] right-[15%] h-0.5 bg-blue-100 z-0"></div>
-                
-                <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 bg-white border-4 border-[#F29631] rounded-full flex items-center justify-center mx-auto mb-4 font-black text-[#183058] shadow-sm">Mo 1</div>
-                  <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 1: Strategic Alignment</h5>
-                  <p className="text-xs text-slate-500 leading-relaxed">Finalization of Joint Venture structure and signing of the Consortium Partnership Agreement.</p>
-                </div>
-                
-                <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 bg-white border-4 border-[#5176A2] rounded-full flex items-center justify-center mx-auto mb-4 font-black text-[#183058] shadow-sm">Mo 2</div>
-                  <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 2: Legal & Licensing</h5>
-                  <p className="text-xs text-slate-500 leading-relaxed">Legal registration of PT Glory Asia Energy (PT PMA), including licensing for O&G technical services.</p>
-                </div>
-                
-                <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 bg-white border-4 border-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 font-black text-[#183058] shadow-sm">Mo 3</div>
-                  <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 3: Operational Launch</h5>
-                  <p className="text-xs text-slate-500 leading-relaxed">Operational team integration and equipment mobilization for pilot project commencement.</p>
-                </div>
+          <RevealOnScroll delay={250} className="bg-slate-50 rounded-3xl p-8 border border-slate-200 max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h4 className="text-xl font-black text-[#183058]">Roadmap to Establishment</h4>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 relative">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative text-center">
+                <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full mb-3">Mo 1</span>
+                <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 1: Strategic Alignment</h5>
+                <p className="text-xs text-slate-500 leading-relaxed">Finalization of Joint Venture structure and signing of the Consortium Partnership Agreement.</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative text-center">
+                <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full mb-3">Mo 2</span>
+                <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 2: Legal & Licensing</h5>
+                <p className="text-xs text-slate-500 leading-relaxed">Legal registration of PT Glory Asia Energy (PT PMA), including licensing for O&G technical services.</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 relative text-center">
+                <span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full mb-3">Mo 3</span>
+                <h5 className="font-bold text-[#183058] text-sm mb-2 uppercase">Phase 3: Operational Launch</h5>
+                <p className="text-xs text-slate-500 leading-relaxed">Operational team integration and equipment mobilization for pilot project commencement.</p>
               </div>
             </div>
           </RevealOnScroll>
         </div>
       </section>
 
-      {/* Project Workpack Summary Section */}
-      <section id="workpack" className="py-20 bg-slate-100 relative border-t border-slate-200">
+      {}
+      <section id="gallery" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+        {/* Glow Effects */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F29631]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#5176A2]/20 rounded-full blur-[120px] pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <RevealOnScroll className="text-center max-w-2xl mx-auto mb-12">
+          <RevealOnScroll className="text-center max-w-2xl mx-auto mb-10">
+            <div className="inline-block bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full mb-4">
+              <h2 className="text-[#F29631] font-bold tracking-widest uppercase text-[10px]">Project Media & Gallery</h2>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">Our Projects in Action</h3>
+            <p className="text-slate-300 text-base leading-relaxed">
+              Explore our visual documentation of high-impact brownfield asset transformations and technological deployments in the field.
+            </p>
+          </RevealOnScroll>
+
+          {/* Filter Tabs */}
+          <RevealOnScroll delay={100} className="flex flex-wrap justify-center gap-2 mb-10">
+            {[
+              { id: 'all', label: 'All Media' },
+              { id: 'well', label: 'Well Rejuvenation' },
+              { id: 'pipeline', label: 'Pipeline Asset' },
+              { id: 'sludge', label: 'Sludge Recovery' },
+              { id: 'operations', label: 'Field Operations' },
+              { id: 'video', label: 'Video Demos' }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? 'bg-[#F29631] text-white shadow-lg shadow-orange-500/30'
+                    : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </RevealOnScroll>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {filteredItems.map((item, index) => (
+              <RevealOnScroll key={item.id} delay={index * 50}>
+                <div 
+                  onClick={() => setSelectedMedia(item)}
+                  className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 border border-slate-700 shadow-lg cursor-pointer transform hover:-translate-y-1.5 transition-all duration-300"
+                >
+                  <img 
+                    src={item.src} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                  
+                  {/* Media Badge Top */}
+                  <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center space-x-1.5 border border-white/10">
+                    {item.type === 'video' ? (
+                      <>
+                        <PlayCircle size={12} className="text-[#F29631]" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-white">Video</span>
+                      </>
+                    ) : (
+                      <>
+                        <ImageIcon size={12} className="text-[#5176A2]" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-white">Photo</span>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Zoom Icon Right */}
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity border border-white/10 text-white">
+                    <Maximize2 size={14} />
+                  </div>
+
+                  {/* Content Bottom */}
+                  <div className="absolute bottom-0 left-0 w-full p-4">
+                    <h4 className="text-sm font-bold text-white mb-1 group-hover:text-[#F29631] transition-colors leading-snug">{item.title}</h4>
+                    <p className="text-slate-300 text-xs line-clamp-1 opacity-80">{item.description}</p>
+                  </div>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+
+        {/* Modal / Lightbox for viewing gallery item */}
+        {selectedMedia && (
+          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200">
+            <div className="relative max-w-4xl w-full bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+              <button 
+                onClick={() => setSelectedMedia(null)}
+                className="absolute top-4 right-4 z-20 bg-slate-800/80 text-white p-2 rounded-full hover:bg-slate-700 transition-colors"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="p-2 sm:p-4">
+                {selectedMedia.type === 'video' ? (
+                  <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black">
+                    <video controls autoPlay className="w-full h-full object-contain">
+                      <source src={selectedMedia.videoSrc} type="video/mp4" />
+                      Your browser does not support HTML video.
+                    </video>
+                  </div>
+                ) : (
+                  <div className="max-h-[70vh] flex items-center justify-center rounded-2xl overflow-hidden bg-slate-950">
+                    <img src={selectedMedia.src} alt={selectedMedia.title} className="max-h-[70vh] w-auto object-contain" />
+                  </div>
+                )}
+                
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <span className="bg-[#F29631] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      {selectedMedia.category}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{selectedMedia.title}</h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">{selectedMedia.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {}
+      <section id="workpack" className="py-20 bg-slate-50 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RevealOnScroll className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-block bg-blue-100 px-3 py-1.5 rounded-full mb-4">
               <h2 className="text-[#183058] font-bold tracking-widest uppercase text-[10px]">Operational Structure</h2>
             </div>
-            <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-4 tracking-tight">Project Workpack Summary</h3>
+            <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-4">Project Workpack Summary</h3>
             <p className="text-slate-600 text-base leading-relaxed">
               A comprehensive framework ensuring seamless, unified project execution from initial preparation to long-term maintenance.
             </p>
           </RevealOnScroll>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <RevealOnScroll delay={100} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 text-[#F29631]">
-                <FileText size={24} />
-              </div>
-              <h4 className="font-black text-[#183058] text-base mb-1">Executive Summary</h4>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">Project Overview</p>
-              <p className="text-sm text-slate-600 leading-relaxed">High-level roadmap, objectives, and the "technical services + operational hosting" delivery model.</p>
+            <RevealOnScroll delay={100} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <Briefcase className="text-[#F29631] mb-4" size={28} />
+              <h4 className="font-black text-[#183058] text-base mb-2">Executive Summary</h4>
+              <p className="text-slate-500 text-xs uppercase font-bold mb-2">Project Overview</p>
+              <p className="text-slate-600 text-xs leading-relaxed">High-level roadmap, objectives, and the "technical services + operational hosting" delivery model.</p>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={200} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 text-[#5176A2]">
-                <Users size={24} />
-              </div>
-              <h4 className="font-black text-[#183058] text-base mb-1">Organizational Framework</h4>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">Management Structure</p>
-              <p className="text-sm text-slate-600 leading-relaxed">Command center roles, specialized operational departments, and support teams ensuring unified execution.</p>
+            <RevealOnScroll delay={150} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <Users className="text-[#5176A2] mb-4" size={28} />
+              <h4 className="font-black text-[#183058] text-base mb-2">Organizational Framework</h4>
+              <p className="text-slate-500 text-xs uppercase font-bold mb-2">Management Structure</p>
+              <p className="text-slate-600 text-xs leading-relaxed">Command center roles, specialized operational departments, and support teams ensuring unified execution.</p>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={300} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600">
-                <ClipboardCheck size={24} />
-              </div>
-              <h4 className="font-black text-[#183058] text-base mb-1">Operational Standards</h4>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">Technical & Quality Baseline</p>
-              <p className="text-sm text-slate-600 leading-relaxed">ISO 9001 standard quality protocols, technical specifications, and resource coordination mechanisms.</p>
+            <RevealOnScroll delay={200} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <ClipboardCheck className="text-emerald-600 mb-4" size={28} />
+              <h4 className="font-black text-[#183058] text-base mb-2">Operational Standards</h4>
+              <p className="text-slate-500 text-xs uppercase font-bold mb-2">Technical & Quality Baseline</p>
+              <p className="text-slate-600 text-xs leading-relaxed">ISO 9001 standard quality protocols, technical specifications, and resource coordination mechanisms.</p>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={400} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4 text-red-500">
-                <Shield size={24} />
-              </div>
-              <h4 className="font-black text-[#183058] text-base mb-1">Health & Safety</h4>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">HSE Systems</p>
-              <p className="text-sm text-slate-600 leading-relaxed">Mandatory compliance requirements, including Permit to Work (PTW), Job Safety Analysis (JSA), and strict protection protocols.</p>
+            <RevealOnScroll delay={250} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <Shield className="text-red-500 mb-4" size={28} />
+              <h4 className="font-black text-[#183058] text-base mb-2">Health & Safety</h4>
+              <p className="text-slate-500 text-xs uppercase font-bold mb-2">HSE Systems</p>
+              <p className="text-slate-600 text-xs leading-relaxed">Mandatory compliance requirements, including Permit to Work (PTW), Job Safety Analysis (JSA), and strict protection protocols.</p>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={500} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4 text-emerald-600">
-                <Leaf size={24} />
-              </div>
-              <h4 className="font-black text-[#183058] text-base mb-1">Environmental Management</h4>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">Compliance & Protection</p>
-              <p className="text-sm text-slate-600 leading-relaxed">Strategies for eco-friendly chemicals, compliant hazardous waste disposal, and site restoration.</p>
+            <RevealOnScroll delay={300} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <Leaf className="text-emerald-500 mb-4" size={28} />
+              <h4 className="font-black text-[#183058] text-base mb-2">Environmental Management</h4>
+              <p className="text-slate-500 text-xs uppercase font-bold mb-2">Compliance & Protection</p>
+              <p className="text-slate-600 text-xs leading-relaxed">Strategies for eco-friendly chemicals, compliant hazardous waste disposal, and site restoration.</p>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={600} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4 text-amber-600">
-                <AlertTriangle size={24} />
-              </div>
-              <h4 className="font-black text-[#183058] text-base mb-1">Emergency Response</h4>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">Risk Mitigation</p>
-              <p className="text-sm text-slate-600 leading-relaxed">Contingency plans for operational hazards and on-site emergency resources with local support links.</p>
+            <RevealOnScroll delay={350} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <AlertTriangle className="text-amber-500 mb-4" size={28} />
+              <h4 className="font-black text-[#183058] text-base mb-2">Emergency Response</h4>
+              <p className="text-slate-500 text-xs uppercase font-bold mb-2">Risk Mitigation</p>
+              <p className="text-slate-600 text-xs leading-relaxed">Contingency plans for operational hazards and on-site emergency resources with local support links.</p>
             </RevealOnScroll>
           </div>
         </div>
       </section>
 
-      {/* Technology / Comparison Section (BAT) */}
-      <section id="technology" className="py-20 bg-[#183058] text-white relative overflow-hidden">
-        {/* Glow Effects */}
-        <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-20"></div>
-        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-[#F29631] rounded-full mix-blend-screen filter blur-[100px] opacity-10"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {}
+      <section className="py-20 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RevealOnScroll className="text-center max-w-2xl mx-auto mb-12">
-            <div className="inline-block bg-white/10 px-3 py-1.5 rounded-full mb-4 backdrop-blur-sm border border-white/10">
+            <div className="inline-block bg-orange-100 px-3 py-1.5 rounded-full mb-4">
               <h2 className="text-[#F29631] font-bold tracking-widest uppercase text-[10px]">Technological Edge</h2>
             </div>
-            <h3 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">GAE (BAT) vs. Conventional</h3>
-            <p className="text-[#5176A2] text-base leading-relaxed">
-              A paradigm shift in operational efficiency, safety, and environmental compliance.
-            </p>
+            <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-4">GAE (BAT) vs. Conventional</h3>
+            <p className="text-slate-600 text-sm">A paradigm shift in operational efficiency, safety, and environmental compliance.</p>
           </RevealOnScroll>
 
-          <RevealOnScroll delay={200} className="overflow-x-auto rounded-2xl border border-blue-800/50 bg-[#183058]/60 backdrop-blur-xl shadow-xl">
-            <table className="w-full text-left border-collapse min-w-[800px]">
+          <RevealOnScroll delay={100} className="overflow-x-auto">
+            <table className="w-full text-left border-collapse rounded-2xl overflow-hidden shadow-md">
               <thead>
-                <tr className="bg-blue-900/60 border-b border-blue-800/50">
-                  <th className="p-6 font-black text-white w-1/4 uppercase tracking-widest text-xs">Focus Area</th>
-                  <th className="p-6 font-black text-blue-300 w-1/4 uppercase tracking-widest text-xs">Conventional Methods</th>
-                  <th className="p-6 font-black text-[#F29631] w-1/4 uppercase tracking-widest text-xs bg-blue-900/80">Glory Asia Energy (BAT)</th>
-                  <th className="p-6 font-black text-emerald-400 w-1/4 uppercase tracking-widest text-xs">Key Advantages</th>
+                <tr className="bg-[#183058] text-white text-xs font-bold uppercase tracking-wider">
+                  <th className="p-4">Focus Area</th>
+                  <th className="p-4">Conventional Methods</th>
+                  <th className="p-4">Glory Asia Energy (BAT)</th>
+                  <th className="p-4">Key Advantages</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-blue-800/30">
-                <tr className="hover:bg-white/5 transition-colors group">
-                  <td className="p-6 font-bold text-base flex items-center"><Target className="text-[#5176A2] mr-3 group-hover:text-white transition-colors" size={20}/> Idle Wells</td>
-                  <td className="p-6 text-[#5176A2] font-medium text-sm">Workover Rig / Inaction</td>
-                  <td className="p-6 font-bold text-white bg-blue-900/30 text-sm">Smart Rodless + Nano-Stimulation</td>
-                  <td className="p-6">
-                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30 shadow-inner text-xs">
-                      40% Lower Mob Costs, Rapid Flow
-                    </span>
+              <tbody className="divide-y divide-slate-200 text-xs sm:text-sm bg-slate-50">
+                <tr className="hover:bg-slate-100 transition-colors">
+                  <td className="p-4 font-bold text-[#183058] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#F29631]"></span> Idle Wells
                   </td>
+                  <td className="p-4 text-slate-600">Workover Rig / Injection</td>
+                  <td className="p-4 font-semibold text-[#183058]">Smart Rodless + Nano-Stimulation</td>
+                  <td className="p-4 font-bold text-emerald-700 bg-emerald-50/50">40% Lower Mob Costs, Rapid Flow</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors group">
-                  <td className="p-6 font-bold text-base flex items-center"><Activity className="text-[#5176A2] mr-3 group-hover:text-white transition-colors" size={20}/> Pipelines</td>
-                  <td className="p-6 text-[#5176A2] font-medium text-sm">Trucking / Chemical Flushing</td>
-                  <td className="p-6 font-bold text-white bg-blue-900/30 text-sm">Mechanical + Nano-Chemical Cleaning</td>
-                  <td className="p-6">
-                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30 shadow-inner text-xs">
-                      10-Yr Life Extension, Integrity Audit
-                    </span>
+                <tr className="hover:bg-slate-100 transition-colors">
+                  <td className="p-4 font-bold text-[#183058] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#5176A2]"></span> Pipelines
                   </td>
+                  <td className="p-4 text-slate-600">Trucking / Chemical Flushing</td>
+                  <td className="p-4 font-semibold text-[#183058]">Mechanical + Nano-Chemical Cleaning</td>
+                  <td className="p-4 font-bold text-emerald-700 bg-emerald-50/50">10-Yr Life Extension, Integrity Audit</td>
                 </tr>
-                <tr className="hover:bg-white/5 transition-colors group">
-                  <td className="p-6 font-bold text-base flex items-center"><Droplet className="text-[#5176A2] mr-3 group-hover:text-white transition-colors" size={20}/> Storage Tanks</td>
-                  <td className="p-6 text-[#5176A2] font-medium text-sm">Manual Excavation / Venting</td>
-                  <td className="p-6 font-bold text-white bg-blue-900/30 text-sm">Closed-Loop COW + 3-Phase Separation</td>
-                  <td className="p-6">
-                    <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30 shadow-inner text-xs">
-                      95%+ Oil Recovery, Zero Emissions
-                    </span>
+                <tr className="hover:bg-slate-100 transition-colors">
+                  <td className="p-4 font-bold text-[#183058] flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Storage Tanks
                   </td>
+                  <td className="p-4 text-slate-600">Manual Excavation / Venting</td>
+                  <td className="p-4 font-semibold text-[#183058]">Closed-Loop COW + 3-Phase Separation</td>
+                  <td className="p-4 font-bold text-emerald-700 bg-emerald-50/50">95%+ Oil Recovery, Zero Emissions</td>
                 </tr>
               </tbody>
             </table>
@@ -646,156 +827,105 @@ const App = () => {
         </div>
       </section>
 
-      {/* Roadmap/Lifecycle Section */}
-      <section className="py-20 bg-slate-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <RevealOnScroll className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-block bg-orange-100 px-3 py-1.5 rounded-full mb-4">
-              <h2 className="text-[#F29631] font-bold tracking-widest uppercase text-[10px]">Project Lifecycle</h2>
+      {}
+      <section className="py-20 bg-slate-100 relative border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RevealOnScroll className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-block bg-blue-100 px-3 py-1.5 rounded-full mb-4">
+              <h2 className="text-[#183058] font-bold tracking-widest uppercase text-[10px]">Project Lifecycle</h2>
             </div>
-            <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-4 tracking-tight">Deployment Roadmap</h3>
-            <p className="text-slate-600 text-base leading-relaxed">A rigorous phased execution approach ensuring success from initial contact to full-scale field deployment.</p>
+            <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-4">Deployment Roadmap</h3>
+            <p className="text-slate-600 text-sm">A rigorous phased execution approach ensuring success from initial contact to full-scale field deployment.</p>
           </RevealOnScroll>
 
-          <div className="relative">
-            {/* Timeline Connection Line */}
-            <div className="hidden lg:block absolute top-10 left-[10%] w-[80%] h-1 bg-gradient-to-r from-blue-200 via-[#F29631]/60 to-blue-200 -translate-y-1/2 z-0 rounded-full"></div>
-            
-            <div className="grid lg:grid-cols-5 gap-6 relative z-10">
-              {/* Phase 1 */}
-              <RevealOnScroll delay={100} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-md text-center relative group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl hover:border-orange-200">
-                <div className="w-14 h-14 bg-[#183058] text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:bg-[#F29631] group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <MessageSquare size={24} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { num: '01', title: 'Engagement', desc: 'Technical presentations, project goal alignment, and business formalization.' },
+              { num: '02', title: 'Discovery', desc: 'In-depth data collection, physical site surveys, and sampling.' },
+              { num: '03', title: 'Validation', desc: 'Bench-scale lab simulations to calibrate formulations & parameters.' },
+              { num: '04', title: 'Pilot', desc: 'Controlled field deployment on a single asset to verify metrics.' },
+              { num: '05', title: 'Execution', desc: 'Full-scale actual field deployment and digital monitoring integration.' }
+            ].map((step, idx) => (
+              <RevealOnScroll key={step.num} delay={idx * 80} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center relative flex flex-col justify-between">
+                <div>
+                  <span className="w-8 h-8 rounded-full bg-[#183058] text-white font-black text-xs flex items-center justify-center mx-auto mb-3">{step.num}</span>
+                  <h4 className="font-black text-[#183058] text-base mb-2">{step.title}</h4>
+                  <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
                 </div>
-                <h5 className="font-black text-[#183058] mb-2 text-base tracking-tight">Engagement</h5>
-                <p className="text-xs text-slate-500 leading-relaxed font-medium">Technical presentations, project goal alignment, and business formalization.</p>
               </RevealOnScroll>
-
-              {/* Phase 2 */}
-              <RevealOnScroll delay={200} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-md text-center relative group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl hover:border-orange-200 mt-0 lg:mt-6">
-                <div className="w-14 h-14 bg-[#183058] text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:bg-[#F29631] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
-                  <Search size={24} />
-                </div>
-                <h5 className="font-black text-[#183058] mb-2 text-base tracking-tight">Discovery</h5>
-                <p className="text-xs text-slate-500 leading-relaxed font-medium">In-depth data collection, physical site surveys, and sampling.</p>
-              </RevealOnScroll>
-
-              {/* Phase 3 */}
-              <RevealOnScroll delay={300} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-md text-center relative group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl hover:border-orange-200">
-                <div className="w-14 h-14 bg-[#183058] text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:bg-[#F29631] group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <FlaskConical size={24} />
-                </div>
-                <h5 className="font-black text-[#183058] mb-2 text-base tracking-tight">Validation</h5>
-                <p className="text-xs text-slate-500 leading-relaxed font-medium">Bench-scale lab simulations to calibrate formulations & parameters.</p>
-              </RevealOnScroll>
-
-              {/* Phase 4 */}
-              <RevealOnScroll delay={400} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-md text-center relative group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl hover:border-orange-200 mt-0 lg:mt-6">
-                <div className="w-14 h-14 bg-[#183058] text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:bg-[#F29631] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
-                  <Rocket size={24} />
-                </div>
-                <h5 className="font-black text-[#183058] mb-2 text-base tracking-tight">Pilot</h5>
-                <p className="text-xs text-slate-500 leading-relaxed font-medium">Controlled field deployment on a single asset to verify metrics.</p>
-              </RevealOnScroll>
-
-              {/* Phase 5 */}
-              <RevealOnScroll delay={500} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-md text-center relative group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl hover:border-orange-200">
-                <div className="w-14 h-14 bg-[#183058] text-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:bg-[#F29631] group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <MonitorCheck size={24} />
-                </div>
-                <h5 className="font-black text-[#183058] mb-2 text-base tracking-tight">Execution</h5>
-                <p className="text-xs text-slate-500 leading-relaxed font-medium">Full-scale actual field deployment and digital monitoring integration.</p>
-              </RevealOnScroll>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer / Contact */}
-      <footer id="contact" className="bg-[#183058] text-white pt-16 pb-8 border-t-4 border-[#F29631] relative overflow-hidden">
-        {/* Abstract Shapes */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-20 translate-x-1/3 -translate-y-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#F29631] rounded-full mix-blend-screen filter blur-[100px] opacity-10 -translate-x-1/3 translate-y-1/3"></div>
-        
+      {}
+      <footer id="contact" className="bg-[#183058] pt-16 pb-12 relative overflow-hidden text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 mb-12 items-center">
+          
+          <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
             
-            {/* Branding & CTA */}
-            <RevealOnScroll>
-              {/* Box putih untuk pastikan teks gelap pada logo nampak jelas */}
-              <div className="mb-8 bg-white inline-flex p-5 rounded-3xl shadow-xl transform hover:scale-105 transition-transform duration-300">
-                <img src={footerLogo} alt="Glory Asia Energy" className="w-48 h-auto sm:w-56 object-contain" />
+            {/* Left Box: Partnering Box */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-blue-900/60 to-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
+              <div>
+                <img src={footerLogo} alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
+                <h3 className="text-3xl font-black text-white leading-tight mb-4">
+                  Partnering for <br />
+                  <span className="text-[#F29631]">Energy Excellence</span>
+                </h3>
+                <p className="text-blue-100/70 text-sm leading-relaxed">
+                  Let's collaborate to transform your mature brownfield assets into sustainable, high-performing energy infrastructure.
+                </p>
               </div>
-              
-              <h4 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight leading-tight">
-                Partnering for <br/><span className="text-[#F29631]">Energy Excellence</span>
-              </h4>
-              <p className="text-blue-100/70 max-w-sm text-base leading-relaxed font-light">
-                Let's collaborate to transform your mature brownfield assets into sustainable, high-performing energy infrastructure.
-              </p>
-            </RevealOnScroll>
+            </div>
 
-            {/* Contact Card */}
-            <RevealOnScroll delay={200}>
-              <div className="bg-white text-slate-800 p-8 lg:p-10 rounded-3xl shadow-xl relative transform transition-transform hover:-translate-y-1 duration-500">
-                <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-orange-100 to-orange-50 rounded-full flex items-center justify-center z-0 hidden lg:flex shadow-md border border-white">
-                  <Mail className="text-[#F29631]" size={28} />
+            {/* Right Box: Contact Info Card */}
+            <div className="lg:col-span-7 bg-white text-slate-800 p-8 rounded-3xl shadow-2xl relative overflow-hidden">
+              <div className="flex items-center space-x-2 text-xs font-bold text-[#F29631] uppercase tracking-widest mb-2">
+                <span>Contact Information</span>
+              </div>
+              <h4 className="text-2xl font-black text-[#183058] mb-6">Glory Asia Energy</h4>
+
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Regional Headquarters</span>
+                    <p className="text-slate-700 text-xs sm:text-sm font-semibold leading-relaxed">
+                      B-2-9 Plaza Arkadia, No. 3 Jalan Intisari Perdana, <br />
+                      Desa Park City, 52200 Kuala Lumpur
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="relative z-10">
-                  <h5 className="text-xs font-black text-[#F29631] mb-6 uppercase tracking-widest border-b-2 border-slate-100 pb-3">Contact Information</h5>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <p className="font-black text-[#183058] text-2xl mb-1">Glory Asia Energy</p>
-                      <p className="text-[#5176A2] font-bold text-xs bg-blue-50 inline-block px-3 py-1 rounded-full uppercase tracking-wider mb-2">Regional Headquarters</p>
-                    </div>
-                    
-                    <div className="flex items-start text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100 shadow-inner">
-                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm mr-4 flex-shrink-0 mt-1">
-                        <MapPin className="text-[#183058]" size={20} />
-                      </div>
-                      <span className="font-medium text-sm leading-relaxed">
-                        B-2-9 Plaza Arkadia, No. 3 Jalan Intisari Perdana, <br />
-                        Desa Park City, 52200 Kuala Lumpur
-                      </span>
-                    </div>
-                    
-                    <div className="flex items-center text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-[#F29631]/30 hover:bg-orange-50/50 transition-all cursor-pointer group shadow-inner">
-                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm mr-4 flex-shrink-0 group-hover:bg-[#F29631] group-hover:scale-105 transition-all duration-300">
-                        <Mail className="text-[#183058] group-hover:text-white" size={20} />
-                      </div>
-                      <a href="mailto:contact@gloryasiaenergy.com" className="font-bold text-sm text-[#183058] group-hover:text-[#F29631] transition-colors">
-                        contact@gloryasiaenergy.com
-                      </a>
-                    </div>
+
+                <div className="flex items-center space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="p-3 bg-orange-50 text-[#F29631] rounded-xl flex-shrink-0">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Email Support</span>
+                    <a href="mailto:contact@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
+                      contact@gloryasiaenergy.com
+                    </a>
                   </div>
                 </div>
               </div>
-            </RevealOnScroll>
+            </div>
 
           </div>
 
-          <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-blue-200/60 font-medium">
-            <p>&copy; {new Date().getFullYear()} Glory Asia Energy (Indonesia). All rights reserved.</p>
+          {/* Footer Bar */}
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-blue-200/60">
+            <p>&copy; 2026 Glory Asia Energy (Indonesia) Ltd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms and Conditions</a>
             </div>
           </div>
+
         </div>
       </footer>
-      
-      {/* Scroll to Top Button */}
-      <button 
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 bg-[#F29631] text-white p-3 rounded-full shadow-lg hover:bg-orange-500 hover:scale-110 transition-all duration-300 z-50 focus:outline-none ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'}`}
-        aria-label="Back to top"
-      >
-        <ChevronUp size={20} strokeWidth={3} />
-      </button>
 
     </div>
   );
