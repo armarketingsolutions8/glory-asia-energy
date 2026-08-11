@@ -95,10 +95,9 @@ const App = () => {
     },
     {
       id: 4,
-      title: 'Field Operation & Live Demonstration',
-      category: 'video',
-      type: 'video',
-      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4', 
+      title: 'Pipeline Operation',
+      category: 'pipiline',
+      type: 'image',
       src: '/4.jpeg',
       description: 'Live field test demonstrating rapid flow activation and viscosity reduction.'
     },
@@ -112,20 +111,23 @@ const App = () => {
     },
     {
       id: 6,
-      title: 'On-Site Storage Tank Recovery',
-      category: 'sludge',
-      type: 'image',
+      title: 'Mining',
+      category: 'video',
+      type: 'video',
+      videoSrc: '/6.mp4',
       src: '/6.mp4',
       description: 'Crude washing unit reducing hazardous waste sludge weight by over 70%.'
     },
-    {
+        {
       id: 7,
-      title: 'Offshore & Onshore Field Integration',
-      category: 'operations',
-      type: 'image',
+      title: 'Mining',
+      category: 'video',
+      type: 'video',
+      videoSrc: '/7.mp4',
       src: '/7.mp4',
-      description: 'Joint engineering team deploying BAT solutions in challenging field conditions.'
-    }
+      description: 'Crude washing unit reducing hazardous waste sludge weight by over 70%.'
+    },
+
   ];
 
   const filteredItems = activeTab === 'all' 
