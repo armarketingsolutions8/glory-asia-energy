@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, Droplet, Settings, Activity, 
   ShieldCheck, Handshake, Target, ArrowRight, CheckCircle2,
-  Mail, MapPin, Award, Zap, BarChart3, Globe2,
+  Mail, MapPin, Award, Zap, BarChart3, Globe2, 
   MessageSquare, Search, FlaskConical, Rocket, MonitorCheck, ChevronUp,
   Building2, Briefcase, LineChart, FileText, Users, ClipboardCheck, Shield, Leaf, AlertTriangle,
   Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check
