@@ -8,7 +8,7 @@ import {
   Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check
 } from 'lucide-react';
 
-const gaeLogo = "/favicon.svg"
+const gaeLogo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F29631' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E";
 const footerLogo = gaeLogo;
 
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
@@ -67,13 +67,14 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  /* Menggunakan fail /1.jpeg dan /5.jpeg dari folder public */
   const galleryItems = [
     {
       id: 1,
       title: 'Brownfield Well Rejuvenation Site',
       category: 'well',
       type: 'image',
-      src: '/1.jpeg',
+      src: '/1.jpeg', 
       description: 'Smart rodless plunger pump system installed at Zhundong Field.'
     },
     {
@@ -81,7 +82,7 @@ const App = () => {
       title: 'High-Pressure Pipeline Thermal Cleaning',
       category: 'pipeline',
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/5.jpeg',
       description: '50°C nano-chemical injection units active along PetroChina pipeline segment.'
     },
     {
@@ -89,7 +90,7 @@ const App = () => {
       title: 'Automated Sludge Separation Rig',
       category: 'sludge',
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1508344928928-7137b29de218?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/1.jpeg',
       description: 'Closed-loop COW process recovering >95% crude oil with zero entry risk.'
     },
     {
@@ -97,8 +98,8 @@ const App = () => {
       title: 'Field Operation & Live Demonstration',
       category: 'video',
       type: 'video',
-      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
-      src: 'https://images.unsplash.com/photo-1605647540924-852290f6b0d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4', 
+      src: '/5.jpeg',
       description: 'Live field test demonstrating rapid flow activation and viscosity reduction.'
     },
     {
@@ -106,7 +107,7 @@ const App = () => {
       title: 'Nano-Chemical Laboratory Testing',
       category: 'operations',
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/1.jpeg',
       description: 'R&D testing for customized bio-surfactants and wax dissolution formulas.'
     },
     {
@@ -114,7 +115,7 @@ const App = () => {
       title: 'On-Site Storage Tank Recovery',
       category: 'sludge',
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/5.jpeg',
       description: 'Crude washing unit reducing hazardous waste sludge weight by over 70%.'
     },
     {
@@ -122,7 +123,7 @@ const App = () => {
       title: 'Offshore & Onshore Field Integration',
       category: 'operations',
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/1.jpeg',
       description: 'Joint engineering team deploying BAT solutions in challenging field conditions.'
     },
     {
@@ -131,7 +132,7 @@ const App = () => {
       category: 'video',
       type: 'video',
       videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
-      src: 'https://images.unsplash.com/photo-1621644788326-70966a347318?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      src: '/5.jpeg',
       description: 'Overview of cloud-based digital telemetry monitoring flow rates in real-time.'
     }
   ];
@@ -199,14 +200,12 @@ const App = () => {
 
       {}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-[#183058]">
-        {/* Animated Background Gradients */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#5176A2]/30 rounded-full mix-blend-screen filter blur-[80px] opacity-60 animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#F29631]/20 rounded-full mix-blend-screen filter blur-[100px] opacity-50"></div>
         
-        {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            src="/1.jpeg" 
             alt="Industrial Energy" 
             className="w-full h-full object-cover opacity-20"
           />
@@ -290,7 +289,7 @@ const App = () => {
             <RevealOnScroll className="relative h-[450px] hidden lg:block">
               <div className="absolute top-0 left-0 w-[75%] h-[75%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10 hover:-translate-y-1 transition-transform duration-500 group">
                 <img 
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  src="/1.jpeg" 
                   alt="Engineering Technology" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -298,13 +297,12 @@ const App = () => {
               </div>
               <div className="absolute bottom-0 right-0 w-[60%] h-[60%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20 hover:-translate-y-1 transition-transform duration-500 group">
                 <img 
-                  src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                  src="/5.jpeg" 
                   alt="Industrial Machinery" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               
-              {/* Floating Safety First Badge */}
               <div className="absolute top-[40%] right-2 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-lg z-30 flex items-center space-x-3 animate-bounce-slow">
                 <div className="bg-emerald-100 p-2.5 rounded-lg">
                   <ShieldCheck className="text-emerald-600" size={24} />
@@ -377,11 +375,11 @@ const App = () => {
           </RevealOnScroll>
 
           <div className="grid lg:grid-cols-3 gap-6">
-            {/* Expertise 1 */}
+            {/* Expertise 1: Brownfield Well Rejuvenation */}
             <RevealOnScroll delay={100} className="group bg-slate-50 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col hover:-translate-y-2 duration-300">
               <div className="h-48 overflow-hidden relative">
                 <img 
-                  src= "/5.jpeg"
+                  src="/5.jpeg" 
                   alt="Well Rejuvenation" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -403,11 +401,11 @@ const App = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Expertise 2 */}
+            {/* Expertise 2: Pipeline Asset Rejuvenation */}
             <RevealOnScroll delay={200} className="group bg-slate-50 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col hover:-translate-y-2 duration-300">
               <div className="h-48 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1505672678657-cc70370d5e60?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                  src="/1.jpeg" 
                   alt="Pipeline Rejuvenation" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -429,11 +427,11 @@ const App = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Expertise 3 */}
+            {/* Expertise 3: Sludge Oil Recovery */}
             <RevealOnScroll delay={300} className="group bg-slate-50 rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col hover:-translate-y-2 duration-300">
               <div className="h-48 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                  src="/5.jpeg" 
                   alt="Sludge Oil Recovery" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -537,7 +535,7 @@ const App = () => {
           </RevealOnScroll>
 
           {/* Partner Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <RevealOnScroll delay={100} className="bg-gradient-to-br from-[#183058] to-blue-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden group hover:scale-[1.01] transition-transform">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors"></div>
               <Building2 className="text-[#F29631] mb-6" size={40} />
@@ -558,12 +556,11 @@ const App = () => {
               </p>
             </RevealOnScroll>
           </div>
-
-      
+        </div>
+      </section>
 
       {}
       <section id="gallery" className="py-20 bg-slate-900 text-white relative overflow-hidden">
-        {/* Glow Effects */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#F29631]/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#5176A2]/20 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -616,10 +613,8 @@ const App = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
-                  {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                   
-                  {/* Media Badge Top */}
                   <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-full flex items-center space-x-1.5 border border-white/10">
                     {item.type === 'video' ? (
                       <>
@@ -634,12 +629,10 @@ const App = () => {
                     )}
                   </div>
 
-                  {/* Zoom Icon Right */}
                   <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity border border-white/10 text-white">
                     <Maximize2 size={14} />
                   </div>
 
-                  {/* Content Bottom */}
                   <div className="absolute bottom-0 left-0 w-full p-4">
                     <h4 className="text-sm font-bold text-white mb-1 group-hover:text-[#F29631] transition-colors leading-snug">{item.title}</h4>
                     <p className="text-slate-300 text-xs line-clamp-1 opacity-80">{item.description}</p>
@@ -838,10 +831,10 @@ const App = () => {
           
           <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
             
-            {/* Left Box: Partnering Box */}
+            {/* Left Box */}
             <div className="lg:col-span-5 bg-gradient-to-br from-blue-900/60 to-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
               <div>
-                <img src= "/favicon.svg"  alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
+                <img src={footerLogo} alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
                 <h3 className="text-3xl font-black text-white leading-tight mb-4">
                   Partnering for <br />
                   <span className="text-[#F29631]">Energy Excellence</span>
@@ -889,7 +882,6 @@ const App = () => {
 
           </div>
 
-          {/* Footer Bar */}
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-blue-200/60">
             <p>&copy; 2026 Glory Asia Energy (Indonesia) Ltd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
