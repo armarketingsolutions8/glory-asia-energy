@@ -99,7 +99,7 @@ const App = () => {
       category: 'video',
       type: 'video',
       videoSrc: '/6.mp4',
-      src: '/6.mp4',
+      src: '/5.jpeg',
       description: 'Live field test demonstrating rapid flow activation and viscosity reduction.'
     },
     {
