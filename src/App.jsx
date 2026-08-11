@@ -8,7 +8,7 @@ import {
   Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check
 } from 'lucide-react';
 
-const gaeLogo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F29631' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E";
+const gaeLogo = '/favicon.svg',
 const footerLogo = gaeLogo;
 
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
@@ -205,7 +205,7 @@ const App = () => {
         
         <div className="absolute inset-0 z-0">
           <img 
-            src="/1.jpeg" 
+            src="/5.jpeg" 
             alt="Industrial Energy" 
             className="w-full h-full object-cover opacity-20"
           />
@@ -289,7 +289,7 @@ const App = () => {
             <RevealOnScroll className="relative h-[450px] hidden lg:block">
               <div className="absolute top-0 left-0 w-[75%] h-[75%] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10 hover:-translate-y-1 transition-transform duration-500 group">
                 <img 
-                  src="/1.jpeg" 
+                  src="/5.jpeg" 
                   alt="Engineering Technology" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -834,7 +834,7 @@ const App = () => {
             {/* Left Box */}
             <div className="lg:col-span-5 bg-gradient-to-br from-blue-900/60 to-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
               <div>
-                <img src={footerLogo} alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
+                <img src={footerLogo} alt="/favicon.svg" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
                 <h3 className="text-3xl font-black text-white leading-tight mb-4">
                   Partnering for <br />
                   <span className="text-[#F29631]">Energy Excellence</span>
@@ -883,7 +883,7 @@ const App = () => {
           </div>
 
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-blue-200/60">
-            <p>&copy; 2026 Glory Asia Energy (Indonesia) Ltd. All rights reserved.</p>
+            <p>&copy; 2026 Glory Asia Energy Sdn Bhd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms and Conditions</a>
