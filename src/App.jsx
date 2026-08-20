@@ -818,6 +818,61 @@ Enabled, Green-Driven, Value-Creating" core concepts.
         </div>
       </section>
 
+  {/* Key Management Team Section */}
+      <section id="team" className="py-20 bg-slate-50 relative border-t border-slate-200 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <RevealOnScroll className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-block bg-orange-100 px-3 py-1.5 rounded-full mb-4">
+              <h2 className="text-[#F29631] font-bold tracking-widest uppercase text-[10px]">Leadership</h2>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-4 tracking-tight">Key Management Team</h3>
+            <p className="text-slate-600 text-base leading-relaxed">
+              Guided by industry veterans committed to technological excellence and sustainable energy transformations.
+            </p>
+          </RevealOnScroll>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <RevealOnScroll key={member.id} delay={index * 100} className="bg-white rounded-3xl p-6 border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 text-center">
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  {/* Image Container with fallback styling */}
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-50 shadow-inner bg-slate-100 flex items-center justify-center">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover text-[0px]" // text-[0px] hides broken image icon if path is invalid
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        // Replace with a placeholder generic avatar on error
+                        e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2394a3b8'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
+                      }}
+                    />
+                  </div>
+                  {/* Decorative circle */}
+                  <div className="absolute inset-0 rounded-full border border-slate-200 scale-110 pointer-events-none group-hover:border-[#F29631] transition-colors duration-500"></div>
+                </div>
+                
+                <h4 className="text-xl font-black text-[#183058] mb-1">{member.name}</h4>
+                <p className="text-[#F29631] text-xs font-bold uppercase tracking-wider mb-4">{member.position}</p>
+                <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                  {member.description}
+                </p>
+
+                <div className="flex justify-center space-x-3 pt-4 border-t border-slate-100">
+                  <a href="#" className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-[#5176A2] hover:bg-blue-50 transition-colors">
+                    <Linkedin size={14} />
+                  </a>
+                  <a href="#" className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-[#F29631] hover:bg-orange-50 transition-colors">
+                    <Mail size={14} />
+                  </a>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+  
       {}
       <footer id="contact" className="bg-[#183058] pt-16 pb-12 relative overflow-hidden text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
