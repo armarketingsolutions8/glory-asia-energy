@@ -817,7 +817,8 @@ Enabled, Green-Driven, Value-Creating" core concepts.
           </div>
         </div>
       </section>
-
+{}
+      <section className="py-20 bg-white relative">
   {/* Key Management Team Section */}
       <section id="team" className="py-20 bg-slate-50 relative border-t border-slate-200 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-50 pointer-events-none"></div>
