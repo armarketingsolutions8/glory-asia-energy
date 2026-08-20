@@ -147,7 +147,7 @@ const App = () => {
               </div>
               <div className="flex items-center ml-1 space-x-2">
                 <span className="text-lg sm:text-xl font-black tracking-wide uppercase leading-none text-[#183058]">GLORY ASIA</span>
-                <span className="text-lg sm:text-xl font-black tracking-wide uppercase leading-none text-[#F29631]">ENERGY</span>
+                <span className="text-lg sm:text-xl font-black tracking-wide uppercase leading-none text-[#183058]">ENERGY</span>
               </div>
             </div>
 
