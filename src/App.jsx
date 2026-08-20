@@ -214,12 +214,14 @@ const App = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
-              Unlocking Value in <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F29631] to-yellow-400 drop-shadow-sm">Mature Assets</span>
+              Glory Asia <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F29631] to-yellow-400 drop-shadow-sm">Energy</span>
             </h1>
             
             <p className="text-base md:text-xl text-blue-100/80 mb-10 leading-relaxed font-light max-w-2xl">
-              Transforming brownfield potential into high-performing, sustainable energy infrastructure for Indonesia's energy security.
+              Empowering Global Energy Transformation through Mineral Resource Development & Advanced Oil &
+Gas Engineering Services. Led by Founder & Group President, Mr. David Xu-driven by "Technology-
+Enabled, Green-Driven, Value-Creating" core concepts.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
