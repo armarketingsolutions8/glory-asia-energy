@@ -891,5 +891,3 @@ Enabled, Green-Driven, Value-Creating" core concepts.
     </div>
   );
 };
-
-export default App;
