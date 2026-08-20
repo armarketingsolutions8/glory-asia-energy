@@ -5,7 +5,7 @@ import {
   Mail, MapPin, Award, Zap, BarChart3, Globe2,
   MessageSquare, Search, FlaskConical, Rocket, MonitorCheck, ChevronUp,
   Building2, Briefcase, LineChart, FileText, Users, ClipboardCheck, Shield, Leaf, AlertTriangle,
-  Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check, UserCheck, Linkedin
+  Play, ImageIcon, PlayCircle, Filter, Maximize2, Video, ChevronRight, Check, UserCheck, Linkedin, Flame
 } from 'lucide-react';
 
 const gaeLogo = "/favicon.svg";
@@ -867,73 +867,86 @@ const App = () => {
       </section>
 
       {/* Footer Section */}
-      <footer id="contact" className="bg-[#183058] pt-16 pb-12 relative overflow-hidden text-white">
+      <footer id="contact" className="bg-[#12223c] pt-16 pb-12 relative overflow-hidden text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
+          <div className="grid lg:grid-cols-12 gap-8 items-stretch mb-16">
             
-            {/* Left Box */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-blue-900/60 to-slate-900/80 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[300px]">
+            {/* Left Card */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-[#183058] to-[#0e1d37] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-2xl flex flex-col justify-between min-h-[340px]">
               <div>
-                <img src={footerLogo} alt="Glory Asia Energy" className="w-12 h-12 object-contain mb-6 brightness-0 invert" />
-                <h3 className="text-3xl font-black text-white leading-tight mb-4">
+                <div className="mb-8">
+                  <Flame size={38} className="text-white" />
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
                   Partnering for <br />
                   <span className="text-[#F29631]">Energy Excellence</span>
                 </h3>
-                <p className="text-blue-100/70 text-sm leading-relaxed">
-                  Unlocking value in mature assets globally through advanced BAT engineering solutions and sustainable resource management.
+                <p className="text-blue-100/70 text-sm sm:text-base leading-relaxed max-w-md font-light">
+                  Let's collaborate to transform your mature brownfield assets into sustainable, high-performing energy infrastructure.
                 </p>
               </div>
             </div>
 
-            {/* Right Box: Contact Info Card */}
-            <div className="lg:col-span-7 bg-white text-slate-800 p-8 rounded-3xl shadow-2xl relative overflow-hidden">
-              <div className="flex items-center space-x-2 text-xs font-bold text-[#F29631] uppercase tracking-widest mb-2">
-                <span>Contact Information</span>
-              </div>
-              <h4 className="text-2xl font-black text-[#183058] mb-6">Glory Asia Energy</h4>
-
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0">
-                    <UserCheck size={20} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Key Contact Person</span>
-                    <p className="text-slate-800 text-xs sm:text-sm font-bold">
-                      Sajahan Bin Salman Baris
-                    </p>
-                  </div>
+            {/* Right Card: Contact Info */}
+            <div className="lg:col-span-7 bg-white text-slate-800 p-8 sm:p-10 rounded-3xl shadow-2xl flex flex-col justify-between">
+              <div>
+                <div className="text-xs font-extrabold text-[#F29631] uppercase tracking-wider mb-2">
+                  CONTACT INFORMATION
                 </div>
+                <h4 className="text-2xl sm:text-3xl font-black text-[#183058] mb-6">Glory Asia Energy</h4>
 
-                <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="p-3 bg-orange-50 text-[#F29631] rounded-xl flex-shrink-0">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Email Support</span>
-                    <div className="flex flex-col sm:flex-row sm:space-x-4 gap-1">
-                      <a href="mailto:ssb@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
-                        ssb@gloryasiaenergy.com
-                      </a>
-                      <span className="hidden sm:inline text-slate-300">|</span>
-                      <a href="mailto:contact@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
-                        contact@gloryasiaenergy.com
-                      </a>
+                <div className="space-y-4">
+                  {/* Regional Headquarters */}
+                  <div className="flex items-start space-x-4 bg-[#F8FAFC] p-4 sm:p-5 rounded-2xl border border-slate-100">
+                    <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0 mt-0.5">
+                      <MapPin size={22} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1">
+                        REGIONAL HEADQUARTERS
+                      </span>
+                      <p className="text-slate-700 text-xs sm:text-sm font-semibold leading-relaxed">
+                        B-2-9 Plaza Arkadia, No. 3 Jalan Intisari Perdana, <br className="hidden sm:inline" />
+                        Desa Park City, 52200 Kuala Lumpur
+                      </p>
                     </div>
                   </div>
-                </div>
 
-                <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0">
-                    <MapPin size={20} />
+                  {/* Email Support */}
+                  <div className="flex items-start space-x-4 bg-[#F8FAFC] p-4 sm:p-5 rounded-2xl border border-slate-100">
+                    <div className="p-3 bg-orange-50 text-[#F29631] rounded-xl flex-shrink-0 mt-0.5">
+                      <Mail size={22} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1">
+                        EMAIL SUPPORT
+                      </span>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 gap-1">
+                        <a href="mailto:contact@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
+                          contact@gloryasiaenergy.com
+                        </a>
+                        <span className="hidden sm:inline text-slate-300">|</span>
+                        <a href="mailto:ssb@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
+                          ssb@gloryasiaenergy.com
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Regional Headquarters</span>
-                    <p className="text-slate-700 text-xs sm:text-sm font-semibold leading-relaxed">
-                      B-2-9 Plaza Arkadia, No. 3 Jalan Intisari Perdana, <br />
-                      Desa Park City, 52200 Kuala Lumpur
-                    </p>
+
+                  {/* Key Contact Person */}
+                  <div className="flex items-start space-x-4 bg-[#F8FAFC] p-4 sm:p-5 rounded-2xl border border-slate-100">
+                    <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0 mt-0.5">
+                      <UserCheck size={22} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-1">
+                        KEY CONTACT PERSON
+                      </span>
+                      <p className="text-slate-800 text-xs sm:text-sm font-bold">
+                        Sajahan Bin Salman Baris
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -941,8 +954,9 @@ const App = () => {
 
           </div>
 
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-blue-200/60">
-            <p>&copy; 2026 Glory Asia Energy Sdn Bhd. All rights reserved.</p>
+          {/* Bottom Copyright Bar */}
+          <div className="pt-8 border-t border-slate-700/60 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+            <p>© 2026 Glory Asia Energy Sdn Bhd. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms and Conditions</a>
