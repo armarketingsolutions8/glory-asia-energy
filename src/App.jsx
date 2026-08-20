@@ -867,7 +867,6 @@ const App = () => {
       </section>
 
       {/* Footer Section */}
-      {}
       <footer id="contact" className="bg-[#183058] pt-16 pb-12 relative overflow-hidden text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
@@ -882,7 +881,7 @@ const App = () => {
                   <span className="text-[#F29631]">Energy Excellence</span>
                 </h3>
                 <p className="text-blue-100/70 text-sm leading-relaxed">
-                  Let's collaborate to transform your mature brownfield assets into sustainable, high-performing energy infrastructure.
+                  Unlocking value in mature assets globally through advanced BAT engineering solutions and sustainable resource management.
                 </p>
               </div>
             </div>
@@ -897,6 +896,36 @@ const App = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
                   <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0">
+                    <UserCheck size={20} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Key Contact Person</span>
+                    <p className="text-slate-800 text-xs sm:text-sm font-bold">
+                      Sajahan Bin Salman Baris
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="p-3 bg-orange-50 text-[#F29631] rounded-xl flex-shrink-0">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Email Support</span>
+                    <div className="flex flex-col sm:flex-row sm:space-x-4 gap-1">
+                      <a href="mailto:ssb@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
+                        ssb@gloryasiaenergy.com
+                      </a>
+                      <span className="hidden sm:inline text-slate-300">|</span>
+                      <a href="mailto:contact@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
+                        contact@gloryasiaenergy.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <div className="p-3 bg-blue-50 text-[#183058] rounded-xl flex-shrink-0">
                     <MapPin size={20} />
                   </div>
                   <div>
@@ -905,18 +934,6 @@ const App = () => {
                       B-2-9 Plaza Arkadia, No. 3 Jalan Intisari Perdana, <br />
                       Desa Park City, 52200 Kuala Lumpur
                     </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <div className="p-3 bg-orange-50 text-[#F29631] rounded-xl flex-shrink-0">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Email Support</span>
-                    <a href="mailto:contact@gloryasiaenergy.com" className="text-slate-800 text-xs sm:text-sm font-bold hover:text-[#F29631] transition-colors">
-                      contact@gloryasiaenergy.com
-                    </a>
                   </div>
                 </div>
               </div>
