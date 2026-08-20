@@ -208,7 +208,7 @@ const App = () => {
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-[#F29631] animate-ping"></span>
               <span className="w-2 h-2 rounded-full bg-[#F29631] absolute"></span>
-              <span className="pl-2">Best Available Technology (BAT)</span>
+              <span className="pl-2">PIONEERING TECHNOLOGY & SUSTAINABLE ENERGY</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6 tracking-tight">
