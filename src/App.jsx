@@ -314,11 +314,11 @@ Enabled, Green-Driven, Value-Creating" core concepts.
                   <h2 className="text-[#F29631] font-bold tracking-widest uppercase text-[10px]">Strategic Vision</h2>
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-[#183058] mb-6 leading-tight tracking-tight">
-                  Global Leader in <br/> Energy & Resources
+                  Glory Asia Energy: <br/> Leadership & Vision
                 </h3>
                 
                 <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">
-                  Glory Asia Energy (GAE) is a <strong>Malaysia-Listed Multinational Corporation</strong> consistently innovating at the forefront of the global energy transition. Our strategic maneuvers are guided by our core corporate philosophy: <em>"Technology-Empowered, Green-Driven, Value-Creating."</em>
+                  <strong>Executive Leadership</strong> <br/> Co-led by seasoned mining visionary Mr. David Xu (Founder & Group President) and upstream/downstream operation veteran Mr. Sajahan Bin Salman Baris (Senior VP) 20+ years of international and domestic oil & gas expertise.</em>
                 </p>
                 <p className="text-slate-600 mb-4 leading-relaxed text-sm md:text-base">
                   Through our <strong>'Dual-Wheel' Strategy</strong>, we synergize Mineral Resources Development and Oil & Gas (O&G) Engineering Services to create robust market stability and excellence.
